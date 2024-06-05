@@ -98,9 +98,57 @@ public class Scanner {
             case '\n':
                 line++;
                 break;
+
+            // Literal handling:
+            case '"':
+                handleString();
+                break;
             default:
-                // error
+                if (Character.isDigit(c)) {
+                    number();
+                } else {
+                    ErrorHandler.error(line, "Unknown character");
+                }
         }
+    }
+
+    private void number() {
+        while (Character.isDigit(peek())) advance();
+
+        // Look for a fractional part.
+        if (peek() == '.' && Character.isDigit(peekNext())) {
+            // Consume the "."
+            advance();
+
+            while (Character.isDigit(peek())) advance();
+        }
+
+        addToken(REAL,
+                Double.parseDouble(source.substring(start, current)));
+    }
+
+    private char peekNext() {
+        if (current + 1 >= source.length()) return '\0';
+        return source.charAt(current + 1);
+    }
+
+    private void handleString() {
+        while (peek() != '"' && !isAtEnd()) {
+            if (peek() == '\n') line++;
+            advance();
+        }
+
+        if (isAtEnd()) {
+            ErrorHandler.error(line, "Unterminated string");
+            return;
+        }
+
+        // Advance after the closing ".
+        advance();
+
+        // Trim the surrounding quotes.
+        String value = source.substring(start + 1, current - 1);
+        addToken(STRING, value);
     }
 
     private char advance() {
@@ -118,7 +166,7 @@ public class Scanner {
 
     private boolean match(char expected) {
         if (isAtEnd()) return false;
-        if (source.charAt(current) != expected) return false;
+        if (peek() != expected) return false;
 
         current++;
         return true;

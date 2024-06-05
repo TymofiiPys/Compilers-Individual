@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a1797aaf-d121-4756-8b7d-2bca4a6e75f0" name="Changes" comment="Scanner">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/pascallexer/ErrorHandler.java" afterDir="false" />
+    <list default="true" id="a1797aaf-d121-4756-8b7d-2bca4a6e75f0" name="Changes" comment="ErrorHandler.java">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/pascallexer/PascalLexer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/pascallexer/PascalLexer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/pascallexer/Scanner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/pascallexer/Scanner.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,8 +60,8 @@
       <window_info id="Commit_Guest" show_stripe_button="false" />
       <window_info id="Pull Requests" show_stripe_button="false" />
       <window_info id="Learn" show_stripe_button="false" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.32994792" />
-      <window_info id="Commit" order="1" weight="0.32994792" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.32994792" />
+      <window_info active="true" id="Commit" order="1" visible="true" weight="0.32994792" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
       <window_info anchor="bottom" id="TypeScript" show_stripe_button="false" />
@@ -102,7 +101,7 @@
       <updated>1717183570777</updated>
       <workItem from="1717183572038" duration="260000" />
       <workItem from="1717608675844" duration="514000" />
-      <workItem from="1717609226731" duration="4293000" />
+      <workItem from="1717609226731" duration="4927000" />
     </task>
     <task id="LOCAL-00001" summary="add skeleton to PascalLexer, integrate lombok">
       <option name="closed" value="true" />
@@ -136,7 +135,15 @@
       <option name="project" value="LOCAL" />
       <updated>1717618633681</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="ErrorHandler.java">
+      <option name="closed" value="true" />
+      <created>1717618847703</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1717618847703</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -147,7 +154,8 @@
     <MESSAGE value="define token types in TokenType.java" />
     <MESSAGE value="Add token container" />
     <MESSAGE value="Scanner" />
-    <option name="LAST_COMMIT_MESSAGE" value="Scanner" />
+    <MESSAGE value="ErrorHandler.java" />
+    <option name="LAST_COMMIT_MESSAGE" value="ErrorHandler.java" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
