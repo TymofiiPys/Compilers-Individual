@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a1797aaf-d121-4756-8b7d-2bca4a6e75f0" name="Changes" comment="Add token container">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/pascallexer/Scanner.java" afterDir="false" />
+    <list default="true" id="a1797aaf-d121-4756-8b7d-2bca4a6e75f0" name="Changes" comment="Scanner">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/pascallexer/ErrorHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/pascallexer/PascalLexer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/pascallexer/PascalLexer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,8 +61,8 @@
       <window_info id="Commit_Guest" show_stripe_button="false" />
       <window_info id="Pull Requests" show_stripe_button="false" />
       <window_info id="Learn" show_stripe_button="false" />
-      <window_info content_ui="combo" id="Project" order="0" weight="0.32994792" />
-      <window_info active="true" id="Commit" order="1" visible="true" weight="0.32994792" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.32994792" />
+      <window_info id="Commit" order="1" weight="0.32994792" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
       <window_info anchor="bottom" id="TypeScript" show_stripe_button="false" />
@@ -69,11 +70,11 @@
       <window_info anchor="bottom" id="Build" weight="0.32994187" />
       <window_info anchor="bottom" id="TODO" show_stripe_button="false" />
       <window_info anchor="bottom" id="File Transfer" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Run" visible="true" weight="0.32994187" />
+      <window_info anchor="bottom" id="Run" weight="0.32994187" />
       <window_info anchor="bottom" id="Find" />
       <window_info anchor="bottom" id="Version Control" order="0" />
       <window_info anchor="bottom" id="Problems" order="1" />
-      <window_info anchor="bottom" id="Problems View" order="2" />
+      <window_info active="true" anchor="bottom" id="Problems View" order="2" visible="true" weight="0.32994187" />
       <window_info anchor="bottom" id="Terminal" order="3" weight="0.32994187" />
       <window_info anchor="bottom" id="Services" order="4" />
       <window_info anchor="right" id="Endpoints" show_stripe_button="false" />
@@ -101,7 +102,7 @@
       <updated>1717183570777</updated>
       <workItem from="1717183572038" duration="260000" />
       <workItem from="1717608675844" duration="514000" />
-      <workItem from="1717609226731" duration="3950000" />
+      <workItem from="1717609226731" duration="4293000" />
     </task>
     <task id="LOCAL-00001" summary="add skeleton to PascalLexer, integrate lombok">
       <option name="closed" value="true" />
@@ -127,7 +128,15 @@
       <option name="project" value="LOCAL" />
       <updated>1717618124471</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Scanner">
+      <option name="closed" value="true" />
+      <created>1717618633681</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1717618633681</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -137,7 +146,8 @@
     <MESSAGE value="add skeleton to PascalLexer, integrate lombok" />
     <MESSAGE value="define token types in TokenType.java" />
     <MESSAGE value="Add token container" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add token container" />
+    <MESSAGE value="Scanner" />
+    <option name="LAST_COMMIT_MESSAGE" value="Scanner" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

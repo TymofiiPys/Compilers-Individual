@@ -6,13 +6,13 @@ import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-public class PascalLexer
-{
+public class PascalLexer {
     public static void main(String[] args) throws IOException {
         if (args.length > 1) {
             runFile(args[0]);
-        }  else {
+        } else {
             System.out.println("Supply a pascal code filename");
+            System.exit(1);
         }
     }
 
@@ -22,6 +22,6 @@ public class PascalLexer
     }
 
     private static void run(String source) {
-
+        if (ErrorHandler.hadError) System.exit(2);
     }
 }
