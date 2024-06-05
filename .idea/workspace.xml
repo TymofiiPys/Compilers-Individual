@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a1797aaf-d121-4756-8b7d-2bca4a6e75f0" name="Changes" comment="define token types in TokenType.java">
+    <list default="true" id="a1797aaf-d121-4756-8b7d-2bca4a6e75f0" name="Changes" comment="Add token container">
       <change afterPath="$PROJECT_DIR$/src/main/java/org/pascallexer/Scanner.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/pascallexer/Token.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -102,7 +101,7 @@
       <updated>1717183570777</updated>
       <workItem from="1717183572038" duration="260000" />
       <workItem from="1717608675844" duration="514000" />
-      <workItem from="1717609226731" duration="3542000" />
+      <workItem from="1717609226731" duration="3950000" />
     </task>
     <task id="LOCAL-00001" summary="add skeleton to PascalLexer, integrate lombok">
       <option name="closed" value="true" />
@@ -120,7 +119,15 @@
       <option name="project" value="LOCAL" />
       <updated>1717617977721</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Add token container">
+      <option name="closed" value="true" />
+      <created>1717618124471</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1717618124471</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -129,7 +136,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="add skeleton to PascalLexer, integrate lombok" />
     <MESSAGE value="define token types in TokenType.java" />
-    <option name="LAST_COMMIT_MESSAGE" value="define token types in TokenType.java" />
+    <MESSAGE value="Add token container" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add token container" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
