@@ -1,7 +1,9 @@
 package org.pascallexer;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static org.pascallexer.TokenType.*;
 
@@ -11,6 +13,47 @@ public class Scanner {
     private int start = 0;
     private int current = 0;
     private int line = 1;
+
+    private static final Map<String, TokenType> keywords;
+
+    static {
+        keywords = new HashMap<>();
+        keywords.put("and", AND);
+        keywords.put("array", ARRAY);
+        keywords.put("begin", BEGIN);
+        keywords.put("case", CASE);
+        keywords.put("const", CONST);
+        keywords.put("div", DIV);
+        keywords.put("do", DO);
+        keywords.put("downto", DOWNTO);
+        keywords.put("else", ELSE);
+        keywords.put("end", END);
+        keywords.put("file", FILE);
+        keywords.put("for", FOR);
+        keywords.put("function", FUNCTION);
+        keywords.put("goto", GOTO);
+        keywords.put("if", IF);
+        keywords.put("in", IN);
+        keywords.put("label", LABEL);
+        keywords.put("mod", MOD);
+        keywords.put("nil", NIL);
+        keywords.put("not", NOT);
+        keywords.put("of", OF);
+        keywords.put("or", OR);
+        keywords.put("packed", PACKED);
+        keywords.put("procedure", PROCEDURE);
+        keywords.put("program", PROGRAM);
+        keywords.put("record", RECORD);
+        keywords.put("repeat", REPEAT);
+        keywords.put("set", SET);
+        keywords.put("then", THEN);
+        keywords.put("to", TO);
+        keywords.put("type", TYPE);
+        keywords.put("until", UNTIL);
+        keywords.put("var", VAR);
+        keywords.put("while", WHILE);
+        keywords.put("with", WITH);
+    }
 
     Scanner(String source) {
         this.source = source;
@@ -105,14 +148,27 @@ public class Scanner {
                 break;
             default:
                 if (Character.isDigit(c)) {
-                    number();
+                    handleNumber();
+                } else if (Character.isLetter(c)) {
+                    handleIdentifier();
                 } else {
                     ErrorHandler.error(line, "Unknown character");
                 }
         }
     }
 
-    private void number() {
+    private void handleIdentifier() {
+        while (Character.isLetterOrDigit(peek())) advance();
+
+        String text = source.substring(start, current);
+        TokenType type = keywords.get(text);
+        if (type == null) type = IDENTIFIER;
+        addToken(type);
+
+        addToken(IDENTIFIER);
+    }
+
+    private void handleNumber() {
         while (Character.isDigit(peek())) advance();
 
         // Look for a fractional part.
