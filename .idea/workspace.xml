@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a1797aaf-d121-4756-8b7d-2bca4a6e75f0" name="Changes" comment="Scanner: keywords">
+    <list default="true" id="a1797aaf-d121-4756-8b7d-2bca4a6e75f0" name="Changes" comment="Scanner: table">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/pascallexer/Scanner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/pascallexer/Scanner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/pascallexer/PascalLexer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/pascallexer/PascalLexer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/pascallexer/Token.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/pascallexer/Token.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,7 +105,7 @@
       <workItem from="1717609226731" duration="5135000" />
       <workItem from="1717623170447" duration="1214000" />
       <workItem from="1717667209768" duration="594000" />
-      <workItem from="1717711401450" duration="201000" />
+      <workItem from="1717711401450" duration="566000" />
     </task>
     <task id="LOCAL-00001" summary="add skeleton to PascalLexer, integrate lombok">
       <option name="closed" value="true" />
@@ -162,7 +163,15 @@
       <option name="project" value="LOCAL" />
       <updated>1717624414705</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Scanner: table">
+      <option name="closed" value="true" />
+      <created>1717711793841</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1717711793841</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -176,7 +185,8 @@
     <MESSAGE value="ErrorHandler.java" />
     <MESSAGE value="Scanner: literals and operators" />
     <MESSAGE value="Scanner: keywords" />
-    <option name="LAST_COMMIT_MESSAGE" value="Scanner: keywords" />
+    <MESSAGE value="Scanner: table" />
+    <option name="LAST_COMMIT_MESSAGE" value="Scanner: table" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

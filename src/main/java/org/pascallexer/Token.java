@@ -11,6 +11,6 @@ public class Token {
     private final int line;
 
     public String toString() {
-        return type + " " + lexeme + " " + literal;
+        return "(" + type + ", " + lexeme + ", " + literal;
     }
 }
