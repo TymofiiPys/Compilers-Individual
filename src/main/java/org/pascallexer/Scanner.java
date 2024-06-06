@@ -16,6 +16,8 @@ public class Scanner {
 
     private static final Map<String, TokenType> keywords;
 
+    private final Map<Object, Object> table;
+
     static {
         keywords = new HashMap<>();
         keywords.put("and", AND);
@@ -57,6 +59,7 @@ public class Scanner {
 
     Scanner(String source) {
         this.source = source;
+        this.table = new HashMap<>();
     }
 
     List<Token> scanTokens() {
@@ -218,6 +221,7 @@ public class Scanner {
     private void addToken(TokenType type, Object literal) {
         String text = source.substring(start, current);
         tokens.add(new Token(type, text, literal, line));
+        table.putIfAbsent(literal, literal);
     }
 
     private boolean match(char expected) {
