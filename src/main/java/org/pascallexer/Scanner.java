@@ -181,9 +181,13 @@ public class Scanner {
 
             while (Character.isDigit(peek())) advance();
         }
-
-        addToken(REAL,
-                Double.parseDouble(source.substring(start, current)));
+        try {
+            double convertedDouble = Double.parseDouble(source.substring(start, current));
+            addToken(REAL,
+                    Double.parseDouble(source.substring(start, current)));
+        } catch (NumberFormatException e) {
+            ErrorHandler.error(line, "Number parsed does not fall into range");
+        }
     }
 
     private char peekNext() {
