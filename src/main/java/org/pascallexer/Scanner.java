@@ -79,7 +79,7 @@ public class Scanner {
             scanToken();
         }
 
-        tokens.add(new Token(EOF, null,  line));
+        tokens.add(new Token(EOF, null, line));
         return tokens;
     }
 
@@ -232,7 +232,10 @@ public class Scanner {
 
         // Trim the surrounding quotes.
         String value = source.substring(start + 1, current - 1);
-        addToken(STRING_LITERAL, value);
+        if (value.length() == 1)
+            addToken(CHAR_LITERAL, value);
+        else
+            addToken(STRING_LITERAL, value);
     }
 
     private char advance() {
