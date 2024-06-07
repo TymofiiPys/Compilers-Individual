@@ -1,16 +1,24 @@
 package org.pascallexer;
 
-import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 public class Token {
     private final TokenType type;
-    private final String lexeme;
-    private final Object literal;
+    private final Object value;
     private final int line;
 
     public String toString() {
-        return "(" + type + ", " + lexeme + ", " + literal;
+        StringBuilder ret = new StringBuilder("(" + type);
+        if(value != null) {
+            ret.append(", ");
+            if (value instanceof String)
+                ret.append("\"");
+            ret.append(value);
+            if (value instanceof String)
+                ret.append("\"");
+        }
+        ret.append(")");
+        return ret.toString();
     }
 }

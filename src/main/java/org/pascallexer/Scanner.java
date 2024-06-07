@@ -16,7 +16,7 @@ public class Scanner {
 
     private static final Map<String, TokenType> keywords;
 
-    private final Map<Object, Object> table;
+    private final Map<String, String> table;
 
     static {
         keywords = new HashMap<>();
@@ -69,7 +69,7 @@ public class Scanner {
             scanToken();
         }
 
-        tokens.add(new Token(EOF, "", null, line));
+        tokens.add(new Token(EOF, null,  line));
         return tokens;
     }
 
@@ -146,7 +146,7 @@ public class Scanner {
                 break;
 
             // Literal handling:
-            case '"':
+            case '\'':
                 handleString();
                 break;
             default:
@@ -166,9 +166,7 @@ public class Scanner {
         String text = source.substring(start, current);
         TokenType type = keywords.get(text);
         if (type == null) type = IDENTIFIER;
-        addToken(type);
-
-        addToken(IDENTIFIER);
+        addToken(type, text);
     }
 
     private void handleNumber() {
@@ -180,14 +178,23 @@ public class Scanner {
             advance();
 
             while (Character.isDigit(peek())) advance();
+            try {
+                double convertedDouble = Double.parseDouble(source.substring(start, current));
+                addToken(REAL,
+                        convertedDouble);
+            } catch (NumberFormatException e) {
+                ErrorHandler.error(line, "Number parsed does not fall into range");
+            }
+        } else {
+            try {
+                int convertedInt = Integer.parseInt(source.substring(start, current));
+                addToken(INTEGER,
+                        convertedInt);
+            } catch (NumberFormatException e) {
+                ErrorHandler.error(line, "Number parsed does not fall into range");
+            }
         }
-        try {
-            double convertedDouble = Double.parseDouble(source.substring(start, current));
-            addToken(REAL,
-                    Double.parseDouble(source.substring(start, current)));
-        } catch (NumberFormatException e) {
-            ErrorHandler.error(line, "Number parsed does not fall into range");
-        }
+
     }
 
     private char peekNext() {
@@ -196,7 +203,7 @@ public class Scanner {
     }
 
     private void handleString() {
-        while (peek() != '"' && !isAtEnd()) {
+        while (peek() != '\'' && !isAtEnd()) {
             if (peek() == '\n') line++;
             advance();
         }
@@ -224,8 +231,9 @@ public class Scanner {
 
     private void addToken(TokenType type, Object literal) {
         String text = source.substring(start, current);
-        tokens.add(new Token(type, text, literal, line));
-        table.putIfAbsent(literal, literal);
+        tokens.add(new Token(type, literal, line));
+        if (literal instanceof String)
+            table.putIfAbsent((String) literal, (String) literal);
     }
 
     private boolean match(char expected) {

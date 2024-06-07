@@ -9,7 +9,7 @@ import java.util.List;
 
 public class PascalLexer {
     public static void main(String[] args) throws IOException {
-        if (args.length > 1) {
+        if (args.length == 1) {
             run(args[0]);
         } else {
             System.out.println("Supply a pascal code filename");
