@@ -23,20 +23,26 @@ public class Scanner {
         keywords.put("and", AND);
         keywords.put("array", ARRAY);
         keywords.put("begin", BEGIN);
+        keywords.put("boolean", BOOLEAN);
+        keywords.put("byte", BYTE);
         keywords.put("case", CASE);
+        keywords.put("char", CHAR);
         keywords.put("const", CONST);
         keywords.put("div", DIV);
         keywords.put("do", DO);
         keywords.put("downto", DOWNTO);
         keywords.put("else", ELSE);
         keywords.put("end", END);
+        keywords.put("false", FALSE);
         keywords.put("file", FILE);
         keywords.put("for", FOR);
         keywords.put("function", FUNCTION);
         keywords.put("goto", GOTO);
         keywords.put("if", IF);
         keywords.put("in", IN);
+        keywords.put("integer", INTEGER);
         keywords.put("label", LABEL);
+        keywords.put("longint", LONGINT);
         keywords.put("mod", MOD);
         keywords.put("nil", NIL);
         keywords.put("not", NOT);
@@ -45,11 +51,15 @@ public class Scanner {
         keywords.put("packed", PACKED);
         keywords.put("procedure", PROCEDURE);
         keywords.put("program", PROGRAM);
+        keywords.put("real", REAL);
         keywords.put("record", RECORD);
         keywords.put("repeat", REPEAT);
         keywords.put("set", SET);
+        keywords.put("smallint", SMALLINT);
+        keywords.put("string", STRING);
         keywords.put("then", THEN);
         keywords.put("to", TO);
+        keywords.put("true", TRUE);
         keywords.put("type", TYPE);
         keywords.put("until", UNTIL);
         keywords.put("var", VAR);
@@ -165,8 +175,12 @@ public class Scanner {
 
         String text = source.substring(start, current);
         TokenType type = keywords.get(text);
-        if (type == null) type = IDENTIFIER;
-        addToken(type, text);
+        if (type == null) {
+            type = IDENTIFIER;
+            addToken(type, text);
+        } else {
+            addToken(type);
+        }
     }
 
     private void handleNumber() {
@@ -180,7 +194,7 @@ public class Scanner {
             while (Character.isDigit(peek())) advance();
             try {
                 double convertedDouble = Double.parseDouble(source.substring(start, current));
-                addToken(REAL,
+                addToken(REAL_LITERAL,
                         convertedDouble);
             } catch (NumberFormatException e) {
                 ErrorHandler.error(line, "Number parsed does not fall into range");
@@ -188,7 +202,7 @@ public class Scanner {
         } else {
             try {
                 int convertedInt = Integer.parseInt(source.substring(start, current));
-                addToken(INTEGER,
+                addToken(INTEGER_LITERAL,
                         convertedInt);
             } catch (NumberFormatException e) {
                 ErrorHandler.error(line, "Number parsed does not fall into range");
@@ -218,7 +232,7 @@ public class Scanner {
 
         // Trim the surrounding quotes.
         String value = source.substring(start + 1, current - 1);
-        addToken(STRING, value);
+        addToken(STRING_LITERAL, value);
     }
 
     private char advance() {
@@ -230,10 +244,15 @@ public class Scanner {
     }
 
     private void addToken(TokenType type, Object literal) {
-        String text = source.substring(start, current);
+        if (literal instanceof String) {
+            String val = table.get((String) literal);
+            if (val == null) {
+                table.putIfAbsent((String) literal, (String) literal);
+            } else {
+                literal = val;
+            }
+        }
         tokens.add(new Token(type, literal, line));
-        if (literal instanceof String)
-            table.putIfAbsent((String) literal, (String) literal);
     }
 
     private boolean match(char expected) {
